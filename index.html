@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Data Visualization and D3.js</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Let's Get Visual!</h1>
+					<h3>Creating Data Visualizations using Javascript and D3.js</h3>
+					<p>
+						<small>Kristina Durivage (@gelicia)</small>
+					</p>
+				</section>
+
+				<section>
+					<h1>Firstly...</h1>
+					<ul>
+						<li><h3>Presentation done in <b>Reveal.js</b></h3></li>
+						<li><h3>Interactive coding done with Tributary's standalone version (<b>Tributary.io</b>)</h3></li>
+						<li><h3>Presentation and code will be available</h3></li>
+					</ul>
+				</section>
+
+				<section>
+					<section><h2>Quick Guide to Developing Visualizations</h2></section>
+					<section><h1>Aquire Data</h1><p>Resources at the end</p></section>
+					<section><h1>Tell a <b>Story</b></h1><p>What and why? What are the goals?</p></section>
+					<section><h1><b>Explore</b> First</h1><p>Invested time skews perception. Iterate, prototype </p></section>
+					<section><h1><b>Investigate</b></h1><p>Be curious, be ready to answer questions</p></section>
+					<section><h1>Program!</h1></section>				
+				</section>
+
+				<section>
+					<section>
+						<h1>D3.js!</h1>
+					</section>
+					<section>
+						<p>Short story - all D3.js does is <b>bind objects to data</b></p>
+						<p>Works with anything graphical - svg is the most common, but canvas, divs, etc can be used</p>
+						<p><a href="http://gelicia.com/niceride/" target="_blank">My first D3.js visualization</a></p>
+						<a href="http://tributary.io/inlet/5328450" target="_blank">Programming example</a>
+					</section>
+					<section>
+						<p>Transitions are very easy</p>
+						<p><a href="http://gelicia.com/coSchool/">CO School Example</a></p>
+						<pre><code contenteditable>
+svg.selectAll("#popBar")
+	.attr({
+		fill: color1
+	})
+	.transition()
+	.duration(1000)
+	.ease("bounce")
+	.attr({
+		fill: color2
+	});
+					</code></pre>
+					</section>
+					<section>
+						<h2>Maps!</h2>
+						<p>GeoJSON to get the file, D3 can read it in</p>
+						<p>The only problem is the projection numbers - <a href="https://github.com/gelicia/mplsCrimeMapODD/blob/master/js/main.js">Github</a></p>
+						<p><a href="http://gelicia.com/mplsCrimeMapODD/">Minneapolis Crime Map</a></p>
+					</section>
+					<section>
+						<h2>Everything else!</h2>
+						<p><a href="https://github.com/mbostock/d3/wiki/Gallery">D3js.org Examples</a></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Learning D3.js</h1>
+					</section>
+					<section> 
+						<h2>Self Driven</h2></br>
+						<h3>Tutorials</h3>
+						<p>Google, <a href="http://enjalot.github.io/dot-enter/">Enjalot Mixtapes</a></p>
+						</br><h3>Sandboxes</h3>
+						<p><a href="http://bl.ocks.org/">bl.ocks.org</a></p>
+						<p><a href="http://tributary.io/">tributary.io</a></p>
+						<br/><h3>Books</h3>
+						<p><a href="http://shop.oreilly.com/product/0636920025429.do">Getting Started with D3</a></p>
+						<p><a href="http://shop.oreilly.com/product/0636920026938.do">Interactive Data Visualization</a></p>
+					</section>
+					<section>
+						<h3>Online Communities</h3>
+						<p><a href="https://twitter.com/DashingD3js">@DashingD3js</a></p>
+						<p><a href="https://twitter.com/d3visualization">@d3visualization</a></p>
+						<p><a href="https://groups.google.com/forum/?fromgroups#!forum/d3-js">Google Groups (D3-js)</a></p>
+						<p>IRC - #d3.js on Freenode</p>
+					</section>
+					<section>
+						<h3>Local Meetups</h3>
+						<p><a href="http://www.meetup.com/Twin-Cities-Visualization-Group/">Twin Cities Visualization Group</a></p>
+						<p><a href="http://www.meetup.com/JavaScriptMN/">JavascriptMN</a></p>
+						<p><a href="http://www.webmn.net/">WebMN</a></p>
+						<br/>
+	 					<p><a href="http://www.meetup.com/cfabrigade/Twin-Cities/">Code For America, Twin Cities</a></p>
+	 					<p><a href="http://www.opentwincities.org/">Open Twin Cities</a></p>
+	 					<p><a href="http://www.meetup.com/The-Minneapolis-Quantified-Self-Meetup-Group/">Minneapolis Quantified Self</a></p>
+					</section>
+					<section>
+						<h3>Finding Projects/Data</h3>
+						<p><a href="http://www.kaggle.com/">Kaggle.com</a></p>
+						<p>Other contests (<a href="https://github.com/blog/1450-the-github-data-challenge-ii">Github</a>)</p>
+						<p><a href="http://tech.mn/">Tech.mn</a> - Hackathons, etc</p>
+						<p><a href="https://docs.google.com/spreadsheet/ccc?key=0AtkFCdxQ11AOdGpWWnpuVzdaNG1SVG40MXlyZ0hSVEE#gid=13">Open Twin Cities' List of Data Sources</a></p>
+						<p>Ask!</p>
+					</section>
+				</section>
+				<section>
+					<h2>Related</h2>
+					<p><a href="http://nvd3.org/">NVD3</a> - Still uses Javascript, just simplified</p>
+					<p><a href="http://trifacta.github.io/vega/">Vega</a> - Define chart in JSON</p>
+					<p><a href="http://www.amazon.com/The-Functional-Art-introduction-visualization/dp/0321834739/">The Functional Art</a> by Alberto Cairo</p>
+					<p><a href="http://processing.org/">Processing</a></p>
+					
+					
+				</section>
+				<section>
+					<h2>Contact</h2>
+					<p>Twitter / Github gelicia</p>
+					<p>kdurivage@gelicia.com</p>
+					<p><a href="https://github.com/gelicia/D3TCCC14">Presentation</a> will be there</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
