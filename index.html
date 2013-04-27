@@ -55,7 +55,7 @@
 
 				<section>
 					<section><h2>Quick Guide to Developing Visualizations</h2></section>
-					<section><h1>Aquire Data</h1><p>Resources at the end</p></section>
+					<section><h1>Aquire <b>Data</b></h1><p>Resources at the end</p></section>
 					<section><h1>Tell a <b>Story</b></h1><p>What and why? What are the goals?</p></section>
 					<section><h1><b>Explore</b> First</h1><p>Invested time skews perception. Iterate, prototype </p></section>
 					<section><h1><b>Investigate</b></h1><p>Be curious, be ready to answer questions</p></section>
@@ -93,10 +93,27 @@ svg.selectAll("#popBar")
 						<p>GeoJSON to get the file, D3 can read it in</p>
 						<p>The only problem is the projection numbers - <a href="https://github.com/gelicia/mplsCrimeMapODD/blob/master/js/main.js">Github</a></p>
 						<p><a href="http://gelicia.com/mplsCrimeMapODD/">Minneapolis Crime Map</a></p>
+                        <pre><code contenteditable>
+ var geoJson = d3.json("data/minneapolis.geojson", function(collection) {
+        neigh
+            .selectAll("path")
+            .data(collection.features)
+            .enter()
+            .append("path")
+            .attr(
+                {
+                    "d" : path,
+                    fill : "#666666",
+                    stroke : "#000000"
+                }
+            );
+    });
+                    </code></pre>
 					</section>
 					<section>
 						<h2>Everything else!</h2>
 						<p><a href="https://github.com/mbostock/d3/wiki/Gallery">D3js.org Examples</a></p>
+                        <p><a href="http://biovisualize.github.io/d3visualization/">Biovisualize D3.js gallery</a></p>
 					</section>
 				</section>
 
@@ -134,6 +151,7 @@ svg.selectAll("#popBar")
 					</section>
 					<section>
 						<h3>Finding Projects/Data</h3>
+						<p><a href="https://scraperwiki.com/">ScraperWiki.com</a></p>
 						<p><a href="http://www.kaggle.com/">Kaggle.com</a></p>
 						<p>Other contests (<a href="https://github.com/blog/1450-the-github-data-challenge-ii">Github</a>)</p>
 						<p><a href="http://tech.mn/">Tech.mn</a> - Hackathons, etc</p>
@@ -142,19 +160,71 @@ svg.selectAll("#popBar")
 					</section>
 				</section>
 				<section>
-					<h2>Related</h2>
-					<p><a href="http://nvd3.org/">NVD3</a> - Still uses Javascript, just simplified</p>
-					<p><a href="http://trifacta.github.io/vega/">Vega</a> - Define chart in JSON</p>
-					<p><a href="http://www.amazon.com/The-Functional-Art-introduction-visualization/dp/0321834739/">The Functional Art</a> by Alberto Cairo</p>
-					<p><a href="http://processing.org/">Processing</a></p>
-					
-					
+					<section>
+						<h1>Related</h1>
+					</section>
+					<section>
+						<h2>Miso Dataset</h2>
+						<p>SQL-ish way to get data in Javascript (aggregations, filters)</p>
+						<p>Delimited, XML, JSON, custom parsing</p>
+												<pre><code contenteditable>
+var dataSet = new Miso.Dataset({
+    url : 'http://api.remote.com/something',	
+    interval: 10000,
+    sync: true,
+    jsonp : true,
+    resetOnFetch: true
+});
+
+dataSet.fetch({
+    success : function() {
+        this.each(
+            function(row){
+                row.attribute;
+			});
+    }
+});
+					</code></pre>
+					</section>
+                    <section>
+                        <h2>JQuery Deferreds!</h2>
+                        <p>Also works for functions that need to return things</p>
+                        <p><a href="https://github.com/gelicia/spacecraftVisSAC/blob/master/js/main.js">Example of use</a></p>
+                        <pre><code contenteditable>
+var functionAPromise = functionA();
+functionAPromise.done(
+    function(){
+        functionB();
+    }
+);
+
+function functionA(){
+    var def = $.Deferred();
+    //do things
+    def.resolve();
+    return def.promise();
+}
+                        </code></pre>
+                    </section>
+					<section>
+						<h2>Other Libraries</h2>
+						<p><a href="http://nvd3.org/">NVD3</a> - Still uses Javascript, just simplified</p>
+						<p><a href="http://trifacta.github.io/vega/">Vega</a> - Define chart in JSON</p>
+						<p><a href="http://code.shutterstock.com/rickshaw/">Rickshaw</a> - Simplified time series charts</p>
+						<p><a href="http://square.github.io/cubism/">Cubism</a> - Simplified realtime monitoring time series charts</p>
+					</section>
+					<section>
+						<h2>Etc</h2>
+						<p><a href="http://www.amazon.com/The-Functional-Art-introduction-visualization/dp/0321834739/">The Functional Art</a> by Alberto Cairo</p>
+						<p><a href="http://processing.org/">Processing</a> - Easy to learn</p>
+					</section>
 				</section>
 				<section>
 					<h2>Contact</h2>
-					<p>Twitter / Github gelicia</p>
+					<p>Twitter / Github @gelicia</p>
 					<p>kdurivage@gelicia.com</p>
 					<p><a href="https://github.com/gelicia/D3TCCC14">Presentation</a> will be there</p>
+                    <p><a href="http://gelicia.com/D3TCCC/#/">http://gelicia.com/D3TCCC/</a></p>
 				</section>
 			</div>
 
